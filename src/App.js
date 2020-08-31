@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import { createGlobalStyle } from "styled-components"
 
-function App() {
+import Landing from "./pages/Landing"
+
+import MainHeader from "./components/MainHeader"
+
+const GlobalStyleReset = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-size: 16px;
+  }
+`
+const GlobalVariables = createGlobalStyle`
+  html {
+    --display-font: 'Arvo', serif;
+    --logo-font: 'Fjalla One', sans-serif;
+
+    --text-white: #fff;
+    --text-black: #000;
+    --primary: #B11C1C;
+  }
+`
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyleReset />
+      <GlobalVariables />
+      <MainHeader />
+      <Landing />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
